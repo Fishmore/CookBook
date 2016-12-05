@@ -8,6 +8,7 @@ import { RecipeService } from '../recipe.service';
   templateUrl: './recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
+  privilege: string = 'low';
   recipes: Recipe[] = [];
 
   constructor(private recipeService: RecipeService) { }
@@ -17,6 +18,16 @@ export class RecipeListComponent implements OnInit {
     this.recipeService.recipesChanged.subscribe(
       (recipes: Recipe[]) => this.recipes = recipes
     );
+  }
+
+  onStore() {
+    this.recipeService.storeData().subscribe(
+      data => console.log(data)
+    );
+  }
+
+  onFetch() {
+    this.recipeService.fetchData();
   }
 
 }

@@ -70,7 +70,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   }
 
   private navigateBack() {
-    this.router.navigate(['../']);
+    this.router.navigate(['/recipes']);
   }
 
   private initForm() {
